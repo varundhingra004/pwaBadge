@@ -1,6 +1,5 @@
 var unreadCount = 0;
 
-
 window.onload = () => {
     'use strict';
 
@@ -10,13 +9,7 @@ window.onload = () => {
 
     //set the badge 
     setAppBadgeFunc();
-
-
 }
-
-
-
-
 
 function displayNotification() {
 
@@ -26,21 +19,18 @@ function displayNotification() {
 
     });
 
-
     if (Notification.permission === 'granted') {
         navigator.serviceWorker.getRegistration()
             .then(reg => {
                 reg.showNotification('Hello World!', options);
                 unreadCount++;
             });
-
     }
 
     //set the badge 
     setAppBadgeFunc();
 
 }
-
 
 function setAppBadgeFunc() {
     //set the badge 
@@ -58,12 +48,10 @@ function clearAppBadgeFunc() {
     });
 }
 
-
-
 const options = {
     body: 'This is a notification body!',
     icon: 'images/hello-icon-512.png',
-    vibrate: [100, 500, 100],
+    vibrate: [100, 40, 100, 40, 300],
     badge: 'images/hello-icon-512.png',
     data: { primaryKey: 1 },
     actions: [
